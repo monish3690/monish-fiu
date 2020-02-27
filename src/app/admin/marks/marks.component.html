@@ -1,0 +1,99 @@
+<div class="text-center">
+    <button type="button" class="btn btn-primary" style="border-radius: 15px;" data-toggle="modal" data-target="#myModal">
+      <i class="fas fa-upload"></i> &nbsp;Marks
+      </button>
+    </div>
+      
+      <!-- The Modal -->
+     
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="jumbotron">
+            <div class="modal-body">
+    <form #ref="ngForm" (ngSubmit)="stumarks(ref.value);ref.reset()">
+        <div class="form-group">
+            Choose year <br>
+            <select name="year" class="form-control" ngModel>
+            
+                <option value="2019">2019</option>
+                <option value="2019">2019</option>
+                <option value="2019">2019</option>
+                <option value="2019">2019</option>
+               
+                
+    
+            </select>
+      
+        </div>
+        <div class="form-group">
+          Choose Subject Name<br>
+          <select name="subjectname" class="form-control" ngModel>
+          
+              <option value="sub1">sub1</option>
+              <option value="sub2">sub2</option>
+              <option value="sub3">sub3</option>
+              <option value="lab">lab</option>
+              <option value="total">Total</option>
+          </select>
+    
+      </div>
+      <form action="/action_page.php">
+        <label for="myFile">upload Marks</label>
+        <input type="file" id="myFile" class="form-control" name="marks"
+        (change)="fileUpload($event)" ngModel>
+       
+      </form>
+     
+    
+    
+    </form>
+    </div>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+     <div class="text-center">
+    <button type="submit" class="btn btn-danger" data-dismiss="modal" (click)="stumarks(ref.value)">submit</button>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+
+      <table class="table table-hover">
+   
+      <thead>
+          <th>year</th>
+          <th>branch</th>
+          <th>studentId</th>
+          <th>sub1</th>
+          <th>sub2</th>
+          <th>sub3</th>
+          <th>Lab</th>
+          <th>Total</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let k of this.marks">
+          <td>{{k.year}}</td>
+          <td>{{k.branch}}</td>
+          <td>{{k.studentid}}</td>
+          <td>{{k.sub1}}</td>
+          <td>{{k.sub2}}</td>
+          <td>{{k.sub3}}</td>
+          <th>{{k.lab}}</th>
+          <td>{{k.total}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

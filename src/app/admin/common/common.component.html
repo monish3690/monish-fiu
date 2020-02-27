@@ -1,0 +1,288 @@
+
+  
+  <div class="row">
+    <div class="col-sm-4">
+      <input type="search" id="" placeholder="Search By Student_Name" class="form-control mt-3" [(ngModel)]="commonTerm">
+
+    </div>
+  <div class="col-sm-2">
+    <button class="btn btn-info" data-target="#mod1" data-toggle="modal">Register</button>
+    </div>
+    
+    
+ <div class="col-sm-3">
+  <button type="submit" style="border-radius: 5px;" class="btn btn-secondary" (click)="downloadFile()"><i class="far fa-file-excel"></i>Download Excel</button>
+  </div> 
+ 
+  <div class="col-sm-3">
+  <button type="button"class="btn btn-success text-dark" (click)="downloadPDF()"><i class="fas fa-file-pdf"></i>pdf</button>  
+</div>
+</div>
+
+ 
+ <div class="row">
+   <div class="col-sm-4">
+ <!-- search by name -->
+ 
+  
+
+
+ <!-- <div class="text-right">
+    <button class="btn btn-info" data-target="#mod1" data-toggle="modal">Register</button>
+    </div> -->
+
+    <div class="modal" id="mod1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            Edit details
+    
+            <button class="close" data-dismiss="modal">x</button>
+          </div>
+    
+          <div class="modal-body">
+    
+            <div class="jumbotron">
+                <div class="text-center">
+                    <h4 class="text-success">REGISTRATION FORM</h4>
+                </div>
+            <form #ref="ngForm" (ngSubmit)="submitForm(ref.value); ">
+            <div class="form-group">
+                <label for="f">First Name</label>
+                <input type="text" id="f" class="form-control" #ref1="ngModel" name="first" ngModel required>
+                <div *ngIf="ref1.touched && ref1.invalid" class="alert alert-danger">
+                   name is Mandatory
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="s">Second Name</label>
+                <input type="text" id="s" class="form-control"  #ref2="ngModel" name="second" ngModel required>
+                <div *ngIf="ref2.touched && ref2.invalid" class="alert alert-danger">
+                    Last name is Mandatory
+                 </div>
+            </div>
+            
+            <div class="form-check">
+               <label for="gender" class="form-check-label">Choose Gender</label>  <br>
+                <input type="radio" id="gender" class="form-check-input" #ref3="ngModel" value="male" name="G" ngModel required>male <br>
+                <input type="radio" id="gender" class="form-check-input" #ref3="ngModel" value="female" name="G" ngModel required>Female <br>
+                <input type="radio" id="gender" class="form-check-input"  #ref3="ngModel" value="transgender" name="G" ngModel required>transGender
+            
+                <div *ngIf="ref3.touched && ref3.invalid" class="alert alert-danger">
+                  Gender is Mandatory
+               </div>
+            </div>
+            <div class="form-group">
+                <label for="pn">Phone Number</label>
+                <input type="number" id="pn" class="form-control" #ref4="ngModel" name="phone" ngModel required pattern="\d\d\d\d\d\d\d\d\d\d">
+                <div *ngIf="ref4.touched && ref4.invalid" class="alert alert-danger">
+                    Field is Mandatory
+                    <div *ngIf="ref4.errors?.pattern">must have ten digits</div>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="email">EmailId</label>
+                <!-- <input type="mail" id="email" class="form-control" #ref5="ngModel" name="email" value="submit Now!" required ngModel > -->
+                <input type="text" name="email" id="email" autocomplete="off" #email="ngModel" class="form-control" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  ngModel>  
+                <div class="help-block" *ngIf="email.errors?.required && email.touched" class="alert alert-primary"> email is required</div>
+                <div class="help-block" *ngIf="email.errors?.pattern && email.touched" class="alert alert-primary"> E-mail is invalid</div>               
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="de">Department</label>
+                <input type="text" id="de" class="form-control" name="department" [(ngModel)]="data1"  [attr.disabled]="true">
+               
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea  id="address" cols="30" rows="10" name="address" #ref7="ngModel" class="form-control" ngModel required></textarea>
+                <div *ngIf="ref7.touched && ref7.invalid" class="alert alert-danger">
+                  Address is Mandatory
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="year">Year of Join</label>
+                <input type="number" id="year" class="form-control" #ref8="ngModel" name="year" ngModel required>
+                <div *ngIf="ref8.touched && ref8.invalid" class="alert alert-danger">
+                    year is Mandatory
+                 </div>
+            
+            </div>
+            <div class="form-group">
+                <label for="ssc">SSC %</label>
+                <input type="number" id="ssc" class="form-control" #ref9="ngModel" name="ssc" ngModel required>
+                <div *ngIf="ref9.touched && ref9.invalid" class="alert alert-danger">
+                    per is Mandatory
+                 </div>
+            
+            </div>
+            <div class="form-group">
+                <label for="inter">INTER %</label>
+                <input type="number" id="inter" class="form-control" #ref10="ngModel" name="inter" ngModel required>
+                <div *ngIf="ref10.touched && ref10.invalid" class="alert alert-danger">
+                    per is Mandatory
+                 </div>
+            
+            </div>
+            </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+              <div class="text-center">
+            <button type="submit" class="btn btn-success" data-dismiss="modal" [disabled]="ref.invalid" (click)="submitForm(ref.value)">Submit</button>
+             </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6"></div>
+    <!-- //readby year -->
+   
+  <div class="col-sm-2">
+    <label for="year">Sort by year</label>
+    <select class="bg-primary" #refchange (change)="changeYear(refchange.value)" ngModel id="year">
+      <option value="all">all</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+    </select>
+
+  </div>
+
+</div>
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <th>first Name</th>
+            <th>Second name</th>
+            <th>Choose Gender</th>
+            <th>Phone Number</th>
+            <th>EmailId</th>
+            <th>Department</th>
+            <th>Address</th>
+            <th>Year Of Join</th>
+            <th>SSC %</th>
+            <th>INTER %</th>
+            <th>update</th>
+            <th>delete</th>
+            
+          </thead> 
+
+         
+        <tbody>
+        <tr *ngFor="let k of data | common :commonTerm">
+            <td>{{k.first}}</td>
+            <td>{{k.second}}</td>
+            <td>{{k.G}}</td>
+            <td>{{k.phone}}</td>
+            <td>{{k.email}}</td>
+            <td>{{k.department}}</td>
+            <td>{{k.address}}</td>
+            <td>{{k.year}}</td>
+            <td>{{k.ssc}}</td>
+            <td>{{k.inter}}</td>
+            <td>
+              <div class="text-center">
+                <button class="btn btn-success" data-target="#modal123" data-toggle="modal"(click)="update(k)" ><i class="fas fa-pen-square"></i></button>
+                
+                <div class="modal" id="modal123">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        Update Student Details
+                          <button class="close" data-dismiss="modal" class="btn btn-secondary">X</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                          
+                            <h3 class="text-info">Update Student Details</h3>
+                            <form #ref1="ngForm" (ngSubmit)="updateStudent(ref1.value)">
+                              <div class="form-group">
+                                  <label for="f">FirstName</label>
+                                  <input type="text" name="first"  id="f" autocomplete="off"[(ngModel)]="da.first" class="form-control"  required  ngModel>
+                                  
+                              </div>   
+                              <div class="form-group">
+                                  <label for="s">LastName</label>
+                                  <input type="text" name="second" id="s" autocomplete="off" [(ngModel)]="da.second" class="form-control"   ngModel>
+                                  
+                              </div>    
+                          
+                              
+                              <div class="form-check">
+                                  <label for="gender" class="form-check-label">Gender</label> <br> 
+                                  
+                                  <input type="radio" name="G" id="gender" value="male" [(ngModel)]="da.G"  class="form-check-input"  ngModel>Male<br>
+                                  <input type="radio" name="G" id="gender" value="female" [(ngModel)]="da.G"  class="form-check-input"  ngModel>Female
+                                  
+                               </div> 
+                               <div class="form-group">
+                                  <label for="pn">Phone Number</label>
+                                  <input type="number" name="phone" id="pn" [attr.disabled]="true" autocomplete="off" [(ngModel)]="da.phone"   class="form-control" required pattern="\d\d\d\d\d\d\d\d\d\d" ngModel>  
+                                  
+                              </div>
+                              <div class="form-group">
+                                  <label for="email">E-Mail Id</label>
+                                  <input type="text" name="email" id="email" autocomplete="off" [(ngModel)]="da.email"    class="form-control" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"  ngModel>  
+                             
+                              </div>
+                              <!-- <div class="form-group">
+                                  choose Department
+                                    <select name="department"   class="form-control" [(ngModel)]="data1"  [attr.disabled]="true" ngModel>
+                                     <option value="cse">CSE</option>
+                                     <option value="ece">ECE</option>
+                                     <option value="civil">CIVIL</option>
+                                     <option value="mech">MECH</option>
+                                   </select>
+                                   
+                                </div> -->
+                                <div class="form-group">
+                                  <label for="de">Department</label>
+                                  <input type="text" id="de" class="form-control" name="department" [(ngModel)]="data1"  [attr.disabled]="true">
+                                 
+                              </div>
+                                <div class="form-group">
+                                  <label for="address">Address</label>
+                                  <textarea name="address" id="address" [(ngModel)]="da.address"  autocomplete="off" class="form-control"   ngModel>  </textarea>
+                              </div>
+                          
+                              <div class="form-group">
+                                  <label for="year">Year</label>
+                                  <input type="number" name="year" id="year" [(ngModel)]="da.year"  autocomplete="off"  class="form-control"  ngModel>  
+                                  
+                              </div>
+                              <div class="form-group">
+                                  <label for="ssc">SSC %</label>
+                                  <input type="number" name="ssc" id="ssc"  autocomplete="off"[(ngModel)]="da.ssc"  class="form-control"   ngModel>  
+                             
+                              </div>
+                              <div class="form-group">
+                                  <label for="inter">Inter %</label>
+                                  <input type="number" name="inter" id="inter"  autocomplete="off" [(ngModel)]="da.inter"  class="form-control"   ngModel>  
+                              </div>
+                          </form>
+                       
+      
+      
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-success" type="submit" data-dismiss="modal" (click)="updateStudent(ref1.value)">UPDATE</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-warning" type="submit" (click)="deleteStudent(k)"><i class="far fa-trash-alt"></i></button>
+            </td> 
+          </tr></tbody>
+          </table>
+        </div>
+
+
+

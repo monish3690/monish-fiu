@@ -1,0 +1,23 @@
+<div class="table">
+    <thead>
+        <th>year</th>
+        <th>Branch</th>
+        <th>Studentid</th>
+        <th>sub1</th>
+        <th>sub2</th>
+        <th>sub3</th>
+        <th>Lab</th>
+        <th>Total</th>
+    </thead>
+      <tr *ngFor="let l of this.marksdata">
+          <td>{{l.year}}</td>
+          <td>{{l.branch}}</td>
+          <td>{{l.studentid}}</td>
+          <td>{{l.sub1}}</td>
+          <td>{{l.sub2}}</td>
+          <td>{{l.sub3}}</td>
+          <td>{{l.lab}}</td>
+          <td>{{l.total}}</td>
+
+      </tr>
+</div>

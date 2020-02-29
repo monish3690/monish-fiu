@@ -20,6 +20,7 @@ export class AttendanceComponent implements OnInit {
    }
    else{
      this.attendence=read['message']
+     this.ngOnInit();
 
    }
   })

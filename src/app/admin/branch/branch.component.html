@@ -1,35 +1,53 @@
 <br>
-<div class="card-deck">
-    <div class="card">
-    <div class="card-body" style="background-image: url(/assets/ece.jpg);height: 200px; width: 287px;">
-           
+<div class="row">
+
+    <div class="col-sm-4">
+        <div class="card">
+    <div class="card-body">
+           <div class="img">
+        
+            <img class="img-fluid-md" src="/assets/ece.jpg" width="100%" height="250px" alt="">
+        </div>
     </div>
     <div class="card-footer text-center">
           <button class="btn btn-outline-secondary" style="border-radius: 30px;" type="submit" (click)="readBranch('ece')">ECE</button>
+    </div></div>
     </div>
-    </div>
-<div class="card">
-    <div class="card-body" style="background-image: url(/assets/cse.jpg);">
-             
+<div class="col-sm-4">
+    <div class="card">
+    <div class="card-body">
+        <div class="img">
+         <img  class="img-fluid-md" src="/assets/cse.jpg" width="100%" height="250px" alt="">
+        
+        </div> 
     </div>
     <div class="card-footer text-center">
           <button class="btn btn-outline-primary"  style="border-radius: 30px;" type="submit" (click)="readBranch('cse')">CSE</button>
-    </div>
-</div>
-<div class="card">
-    <div class="card-body" style="background-image: url(/assets/mech.jpeg);">
-       
+    </div></div>
+</div></div>
+<div class="row">
+<div class="col-sm-4">
+    <div class="card">
+    <div class="card-body" >
+        <div class="img" >
+            <img  class="img-fluid-md" src="/assets/mech.jpeg" width="100%" height="250px" alt="">
+        
+        </div>
     </div>
     <div class="card-footer text-center">
             <button class="btn btn-outline-success"  style="border-radius: 30px;" type="submit" (click)="readBranch('mechanical')">MECH</button>
-    </div>
+    </div></div>
 </div>
- <div class="card">
-    <div class="card-body" style="background-image: url(/assets/civil.jpg);">
+ <div class="col-sm-4">
+     <div class="card">
+    <div class="card-body">
+        <div class="img">
+                    <img  class="img-fluid-md" src="/assets/civil.jpg" width="100%" height="250px" alt="">
             
+        </div>   
     </div>
     <div class="card-footer text-center">
             <button class=" btn btn-outline-primary" type="submit"  style="border-radius: 30px;" (click)="readBranch('civil')">CIVIL</button>
-    </div>
+    </div></div>
 </div>
 </div>

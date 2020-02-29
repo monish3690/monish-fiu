@@ -20,6 +20,7 @@ export class MarksComponent implements OnInit {
       }
       else{
         this.marks=read['message']
+        this.ngOnInit();
    
       }
      })
